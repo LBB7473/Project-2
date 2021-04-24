@@ -47,26 +47,40 @@ This section serves as a means to navigate the project/repository.
     - Adult respondents ages 18+ who were ever diagnosed with heart disease by a doctor. Years covered are 2011 to 2012 by zip code. Data taken from the California Health Interview Survey Neighborhood Edition (AskCHIS NE) (http://askchisne.ucla.edu/), downloaded January 2016.
     - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
 ```
-"geometry": {
-        "rings": [
-            [
+"features": [
+      {
+         "attributes": {
+            "OBJECTID": 1,
+            "ZIPCODE": "#####",
+            "Zip_code": "#####",
+            "PAdHrtDis": 0.0##,
+            "PAdHrtDis2": #.#,
+            "NAdHrtDis": ,
+            "Pop_18olde": #####
+         },
+         "geometry": {
+            "rings": [
                 [
-                    LONGITUDE1,
-                    LATITUDE1
-                ],
-                [
-                    LONGITUDE2,
-                    LATITUDE2
-                ]
-            ] ] }
+                    [
+                        LONGITUDE1,
+                        LATITUDE1
+                    ],
+                    [
+                        LONGITUDE2,
+                        LATITUDE2
+                    ], ...
+                ] ] }
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
-    - **Zip Code** (ZIPCODE) - The zipcode describing the 
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
+    - **Zip Code** (ZIPCODE) - The zipcode (as a string) describing the area defined in "geometry"
+    - **Zip Code** (Zip_code) - The alternate zipcode (as a string) with nodiscernable difference from **ZIPCODE**
+    - **Proportion of Adults with Heart Disease** (PAdHrtDis) - The proportion of adult respondents who were ever diagnosed with heart disease by a doctor; Calculated by (**NAdHrtDis** / **Pop_18olde**)
+    - **Percent of Adults with Heart Disease** (PAdHrtDis) - The percent of adult respondents who were ever diagnosed with heart disease by a doctor; Calculated by (**NAdHrtDis** / **Pop_18olde**) * 100
+    - **Number of Adults with Heart Disease** (NAdHrtDis) - The number of adult respondents who were ever diagnosed with heart disease by a doctor, adjusted for **Po_18older**
+    - **Population Size** (Pop_18olde) - The population size for that **ZIPCODE**
   - Limitations
-    - Discuss any specific limimations of the dataset
+    - Discuss any specific limitations of the dataset
 2. [Los Angelese Index of Change](https://geohub.lacity.org/datasets/57e9231c3bd34d44ae49b309b0cb440e_1?geometry=-121.025%2C33.622%2C-115.798%2C34.419&selectedAttribute=HH_Incom_2) from The GeoHub, City of Los Angeles
 
 **Disclaimer:** We will largely be using definitions as noted by the Bureau of Justice Statistics as to avoid straying from the intended interpretation of the dataset.
