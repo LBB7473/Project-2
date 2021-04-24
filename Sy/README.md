@@ -42,12 +42,27 @@ This section serves as a means to navigate the project/repository.
 ### Data 
 1. [Heart Disease (18 & Over) 2011-2012](https://geohub.lacity.org/datasets/26ebd4d3d7e6423587ed10be04c201d8_0?geometry=-121.138%2C33.660%2C-115.911%2C34.456) from The GeoHub, City of Los Angeles
 
-**Disclaimer:** We will largely be using definitions as noted by the Bureau of Justice Statistics as to avoid straying from the intended interpretation of the dataset.
+**Disclaimer:** We will largely be using definitions as noted by The GeoHub, City of Los Angeles as to avoid straying from the intended interpretation of the dataset.
   - Description
-    - Generic description of the data
+    - Adult respondents ages 18+ who were ever diagnosed with heart disease by a doctor. Years covered are 2011 to 2012 by zip code. Data taken from the California Health Interview Survey Neighborhood Edition (AskCHIS NE) (http://askchisne.ucla.edu/), downloaded January 2016.
+    - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
+```
+"geometry": {
+        "rings": [
+            [
+                [
+                    LONGITUDE1,
+                    LATITUDE1
+                ],
+                [
+                    LONGITUDE2,
+                    LATITUDE2
+                ]
+            ] ] }
+```
   - Variables
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
+    - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
+    - **Zip Code** (ZIPCODE) - The zipcode describing the 
     - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
     - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
   - Limitations
