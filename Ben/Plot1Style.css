@@ -1,0 +1,77 @@
+.icon-bar {
+    width: 100%; /* Full-width */
+    background-color: rgb(3, 3, 3); /* Dark-grey background */
+    overflow: auto; /* Overflow due to float */
+  }
+  
+  .icon-bar a {
+    float: left; /* Float links side by side */
+    text-align: center; /* Center-align text */
+    width: 25%; /* Equal width (5 icons with 20% width each = 100%) */
+    padding: 12px; /* Some top and bottom padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: rgb(255, 255, 255); /* White text color */
+    font-size: 36px; /* Increased font size */
+  }
+  #charts {
+    background-color: rgb(99, 163, 102);
+  }
+  .icon-bar a:hover {
+    background-color: rgb(147, 236, 152); /* Add a hover color */
+  }
+  
+  .active {
+    background-color: #14c6cc; /* Add an active/current color */
+  }
+  .icon-bar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 77.33;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+    background-color: rgb(0, 132, 255);
+  }
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: green;
+    color: white;
+  }
+  
+  
