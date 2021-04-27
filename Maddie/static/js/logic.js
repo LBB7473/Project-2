@@ -1,6 +1,6 @@
 var myMap = L.map("map", {
     center: [34.0522, -118.2437],
-    zoom: 3
+    zoom: 11
   });
   
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -14,10 +14,19 @@ var myMap = L.map("map", {
   
   var link = "static/data/tobacco.geojson";
 
-  // Grabbing our GeoJSON data..
+  //Grabbing our GeoJSON data..
   d3.json(link, function(data) {
       console.log(data)
-    // Creating a GeoJSON layer with the retrieved data
+      var markers = L.markerClusterGroup(); 
+      for (var i = 0; i < data.length; i++ ){
+        var properties = data[i].features.properties; 
+      if (properties){
+        markers.addLayer(L.marker([properties.coordinates[1], properties.coordinates[0]])
+        .bindPopup(data[i].features.properties.STREET));
+
+      }}
+    //Creating a GeoJSON layer with the retrieved data
+    myMap.addLayer(markers);
     L.geoJson(data).addTo(myMap);
   });
   
