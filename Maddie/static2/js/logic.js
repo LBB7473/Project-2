@@ -1,7 +1,7 @@
 // Creating map object
 var myMap = L.map("map", {
   center: [34.0522, -118.2437],
-  zoom: 8
+  zoom: 11
 });
 
 // Adding tile layer
@@ -10,7 +10,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   tileSize: 512,
   maxZoom: 18,
   zoomOffset: -1,
-  id: "mapbox/streets-v11",
+  id: "mapbox/light-v10",
   accessToken: API_KEY
 }).addTo(myMap);
 
@@ -26,7 +26,7 @@ d3.json(geoData).then(function(data) {
   geojson = L.choropleth(data, {
 
     // Define what  property in the features to use
-    valueProperty: "MHI20Populati_1",
+    valueProperty: "Rent",
 
     // Set color scale
     scale: ["#ffffb2", "#b10026"],
@@ -46,7 +46,7 @@ d3.json(geoData).then(function(data) {
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
       layer.bindPopup("Zip Code: " + feature.properties.ZIP + "<br>Median Household Income:<br>" +
-        "$" + feature.properties.MHI2016);
+        "$" + feature.properties.Rent);
     }
   }).addTo(myMap);
 
