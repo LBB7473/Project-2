@@ -50,28 +50,32 @@ This section serves as a means to navigate the project/repository.
     - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
 ```
 "features": [
-      {
-         "attributes": {
-            "OBJECTID": 1,
-            "ZIPCODE": "#####",
-            "Zip_code": "#####",
-            "PAdHrtDis": 0.0##,
-            "PAdHrtDis2": #.#,
-            "NAdHrtDis": ,
-            "Pop_18olde": #####
-         },
-         "geometry": {
-            "rings": [
-                [
-                    [
-                        LONGITUDE1,
-                        LATITUDE1
-                    ],
-                    [
-                        LONGITUDE2,
-                        LATITUDE2
-                    ], ...
-                ] ] }
+  {
+    "attributes": {
+      "OBJECTID": 1,
+      "ZIPCODE": "#####",
+      "Zip_code": "#####",
+      "PAdHrtDis": 0.0##,
+      "PAdHrtDis2": #.#,
+      "NAdHrtDis": ,
+      "Pop_18olde": #####
+    },
+    "geometry": {
+      "rings": [
+        [
+          [
+            LONGITUDE1,
+            LATITUDE1
+          ],
+          [
+            LONGITUDE2,
+            LATITUDE2
+          ], ...
+        ]
+      ]
+    }
+  }
+]
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
@@ -92,48 +96,52 @@ This section serves as a means to navigate the project/repository.
     - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
 ```
 "features": [
-      {
-         "attributes": {
-            "OBJECTID": #,
-            "zipcode": "#####",
-            "Rank": #,
-            "Neighborho": "NAME",
-            "IRS_Ratio": +/-#.#,
-            "HH_Size": #.#,
-            "Per_White": #.#,
-            "Per_Colleg": #.#,
-            "Rent": #.#,
-            "Index_Scor": 0.#,
-            "IRS_Rati_1": #.#,
-            "IRS_Rati_2": #.#,
-            "HH_Incom_2": #####,
-            "HH_Size_20": #.##,
-            "HH_Size_21": #.##,
-            "Percent_Wh": #.##,
-            "Percent__1": #.##,
-            "College_Pe": #.##,
-            "College__1": #.##,
-            "Gross_Rent": ###,
-            "Gross_Re_1": ###,
-            "MedInc4": #####.#####,
-            "HHChangAdj": #.###########,
-            "Population": #####,
-            "Populati_1": #####,
-            "Populati_2": #.#,
-            "Evaluated": "Yes/No"
-         },
-         "geometry": {
-            "rings": [
-                [
-                    [
-                        LONGITUDE1,
-                        LATITUDE1
-                    ],
-                    [
-                        LONGITUDE2,
-                        LATITUDE2
-                    ], ...
-                ] ] }
+  {
+    "attributes": {
+      "OBJECTID": #,
+      "zipcode": "#####",
+      "Rank": #,
+      "Neighborho": "NAME",
+      "IRS_Ratio": +/-#.#,
+      "HH_Size": #.#,
+      "Per_White": #.#,
+      "Per_Colleg": #.#,
+      "Rent": #.#,
+      "Index_Scor": 0.#,
+      "IRS_Rati_1": #.#,
+      "IRS_Rati_2": #.#,
+      "HH_Incom_2": #####,
+      "HH_Size_20": #.##,
+      "HH_Size_21": #.##,
+      "Percent_Wh": #.##,
+      "Percent__1": #.##,
+      "College_Pe": #.##,
+      "College__1": #.##,
+      "Gross_Rent": ###,
+      "Gross_Re_1": ###,
+      "MedInc4": #####.#####,
+      "HHChangAdj": #.###########,
+      "Population": #####,
+      "Populati_1": #####,
+      "Populati_2": #.#,
+      "Evaluated": "Yes/No"
+    },
+    "geometry": {
+      "rings": [
+        [
+          [
+            LONGITUDE1,
+            LATITUDE1
+          ],
+          [
+            LONGITUDE2,
+            LATITUDE2
+          ], ...
+        ]
+      ]
+    }
+  }
+]
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
@@ -171,12 +179,38 @@ This section serves as a means to navigate the project/repository.
 
 **Disclaimer:** We will largely be using definitions as noted by the Bureau of Justice Statistics as to avoid straying from the intended interpretation of the dataset.
   - Description
-    - Generic description of the data
+    - All active Cigarette and Tobacco Licensees in California and their specific locations as of February 26, 2021
+    - Each object in "features" has a "properties" argument containing the **Variables** discussed below and a "geometry" argument containing a point with a single "coordinates" field:
+```
+"features": [
+  {
+    "type": "Feature",
+    "properties": {
+      "OBJECTID": #,
+      "STREET": "STREETADDRESS",
+      "CITY": "CITY_NAME",
+      "STATE": "CA",
+      "ZIPCODE": #########,
+      "Type": "Retailer"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        LONGITUDE,
+        LATITUDE
+      ]
+    }
+  }
+]
+```
   - Variables
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
-    - **Common Name of Variable** (HARDCODED NAME of VARIABLE) - Description of variable
+    - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
+    - **Common Name of Variable** (STREET) - The street address attached to the point specified in "geometry"
+    - **Common Name of Variable** (CITY) - The city attached to the point specified in "geometry"
+    - **Common Name of Variable** (STATE) - The state attached to the point specified in "geometry"
+    - **Common Name of Variable** (ZIPCODE) - The zipcode (as an integer) attached to the point specified in "geometry"
+    - **Common Name of Variable** (Type) - The type of licensee (commercial entity)
+      - For this dataset, every object has the **Type**: "Retailer"
   - Limitations
     - Discuss any specific limimations of the dataset
 **Reliability**
