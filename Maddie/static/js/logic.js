@@ -16,18 +16,22 @@ var myMap = L.map("map", {
 
   //Grabbing our GeoJSON data..
   d3.json(link, function(data) {
-      console.log(data)
+      
       var markers = L.markerClusterGroup(); 
-      for (var i = 0; i < data.length; i++ ){
-        var properties = data[i].features.properties; 
-      if (properties){
-        markers.addLayer(L.marker([properties.coordinates[1], properties.coordinates[0]])
-        .bindPopup(data[i].features.properties.STREET));
+    
+      data.features.forEach((feature) => {
+        var location = feature.geometry; 
+      
+        
+      if (location){
+        markers.addLayer(L.marker([location.coordinates[1],location.coordinates[0]]));
+        //.bindPopup(feature.properties.street));
 
-      }}
+      }})
     //Creating a GeoJSON layer with the retrieved data
+    
+  //  L.geoJson(data).addTo(myMap);
     myMap.addLayer(markers);
-    L.geoJson(data).addTo(myMap);
   });
   
 
