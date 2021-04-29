@@ -17,9 +17,7 @@ d3.json(link).then (function (data) {
       .bindPopup("<h3>" + feature.properties.STREET + "</h3><hr><p>" + feature.properties.CITY + ", " + feature.properties.STATE  + " " + feature.properties.ZIPCODE + "</p>")); 
 
     
-  
-//L.geoJson(data).addTo(myMap);
- //myMap.addLayer(markers)
+
 };
     }); 
 // Adding tile layer
@@ -66,7 +64,7 @@ d3.json(geoData).then(function(data) {
   geojson = L.choropleth(data, {
 
     // Define what  property in the features to use
-    valueProperty: "HH_Incom_2",
+    valueProperty: "NAdHrtDis",
 
     // Set color scale
     scale: ["#b2b2ff", "#d9ffb2"],
@@ -85,8 +83,8 @@ d3.json(geoData).then(function(data) {
 
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("Zip Code: " + feature.properties.zipcode + "<br>Median Household Income:<br>" +
-        "$" + feature.properties.HH_Incom_2);
+      layer.bindPopup("<h3> Patients 18+ with Heart Disease </h3>" 
+         + feature.properties.NAdHrtDis);
     }
   }).addTo(myMap);
 
@@ -99,7 +97,7 @@ d3.json(geoData).then(function(data) {
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1>Median Income</h1>" +
+    var legendInfo = "<h1> Number of Patients </h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
