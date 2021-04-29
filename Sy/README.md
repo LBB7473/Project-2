@@ -49,33 +49,45 @@ This section serves as a means to navigate the project/repository.
     - Character set: UTF-8
     - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
 ```
-"features": [
-  {
-    "attributes": {
-      "OBJECTID": 1,
-      "ZIPCODE": "#####",
-      "Zip_code": "#####",
-      "PAdHrtDis": 0.0##,
-      "PAdHrtDis2": #.#,
-      "NAdHrtDis": ,
-      "Pop_18olde": #####
+{
+    "type": "FeatureCollection",
+    "name": "efbc8d51-b624-4dd5-b626-74839dbbae42202043-1-133wcty.8a3m",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
     },
-    "geometry": {
-      "rings": [
-        [
-          [
-            LONGITUDE1,
-            LATITUDE1
-          ],
-          [
-            LONGITUDE2,
-            LATITUDE2
-          ], ...
-        ]
-      ]
-    }
-  }
-]
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "OBJECTID": 1,
+                "ZIPCODE": "#####",
+                "Zip_code": "#####",
+                "PAdHrtDis": 0.0##,
+                "PAdHrtDis2": #.#,
+                "NAdHrtDis": ,
+                "Pop_18olde": #####
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            LONGITUDE1,
+                            LATITUDE1
+                        ],
+                        [
+                            LONGITUDE2,
+                            LATITUDE2
+                        ], ...
+                    ]
+                ]
+            }
+        }, ...
+    ]
+}
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
@@ -95,53 +107,67 @@ This section serves as a means to navigate the project/repository.
     - Created in 2015/2016, the data comes from 2000, 2005, 2013, and 2014
     - Each object in "features" has an "attributes" argument containing the **Variables** discussed below and a "geometry" argument containing a geometric polygon describing the ZIP area in the following format:
 ```
-"features": [
-  {
-    "attributes": {
-      "OBJECTID": #,
-      "zipcode": "#####",
-      "Rank": #,
-      "Neighborho": "NAME",
-      "IRS_Ratio": +/-#.#,
-      "HH_Size": #.#,
-      "Per_White": #.#,
-      "Per_Colleg": #.#,
-      "Rent": #.#,
-      "Index_Scor": 0.#,
-      "IRS_Rati_1": #.#,
-      "IRS_Rati_2": #.#,
-      "HH_Incom_2": #####,
-      "HH_Size_20": #.##,
-      "HH_Size_21": #.##,
-      "Percent_Wh": #.##,
-      "Percent__1": #.##,
-      "College_Pe": #.##,
-      "College__1": #.##,
-      "Gross_Rent": ###,
-      "Gross_Re_1": ###,
-      "MedInc4": #####.#####,
-      "HHChangAdj": #.###########,
-      "Population": #####,
-      "Populati_1": #####,
-      "Populati_2": #.#,
-      "Evaluated": "Yes/No"
+{
+    "type": "FeatureCollection",
+    "name": "LAINC_2014",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
     },
-    "geometry": {
-      "rings": [
-        [
-          [
-            LONGITUDE1,
-            LATITUDE1
-          ],
-          [
-            LONGITUDE2,
-            LATITUDE2
-          ], ...
-        ]
-      ]
-    }
-  }
-]
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+              "FID": #,
+              "zipcode": "#####",
+              "Rank": #,
+              "Neighborho": "NAME",
+              "IRS_Ratio": +/-#.#,
+              "HH_Size": #.#,
+              "Per_White": #.#,
+              "Per_Colleg": #.#,
+              "Rent": #.#,
+              "Index_Scor": 0.#,
+              "IRS_Rati_1": #.#,
+              "IRS_Rati_2": #.#,
+              "HH_Incom_2": #####,
+              "HH_Size_20": #.##,
+              "HH_Size_21": #.##,
+              "Percent_Wh": #.##,
+              "Percent__1": #.##,
+              "College_Pe": #.##,
+              "College__1": #.##,
+              "Gross_Rent": ###,
+              "Gross_Re_1": ###,
+              "MedInc4": #####.#####,
+              "HHChangAdj": #.###########,
+              "Population": #####,
+              "Populati_1": #####,
+              "Populati_2": #.#,
+              "Evaluated": "Yes/No",
+              "SHAPE_length": 0.#################,
+              "SHAPE_Area": 0.####################
+            },
+            "geometry": {
+                "type": "MultiPolygon"
+                "coordinates": [
+                    [
+                        [
+                            LONGITUDE1,
+                            LATITUDE1
+                        ],
+                        [
+                            LONGITUDE2,
+                            LATITUDE2
+                        ], ...
+                    ]
+                ]
+            }
+        }, ...
+    ]
+}
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
@@ -173,6 +199,8 @@ This section serves as a means to navigate the project/repository.
     - **Population (2014)** (Populati_1) - Population size for the year 2014
     - **Population Change (2000-2014)** (Populati_2) - % change in population size from the year 2000 to 2014
     - **Evaluated** (Evaluated) - Indicates if **Index_Scor** has been calculated and a corresponding **Rank** has been given for that **zipcode**; Either "Yes" or "No"
+    - **Shape Length** (SHAPE_length) - Indicator describing length of the **MultiPolygon** defined by **coordinates** in **geometry**
+    - **Shape Area** (SHAPE_Area) - Indicator describing the area of the **MultiPolygon** defined by **coordinates** in **geometry**
   - Limitations
     - Discuss any specific limimations of the dataset
 3. [Cigarette and Tobacco Retailers](https://data.ca.gov/dataset/cigarette-and-tobacco-retailers1) from California Open Data Portal, Department of Tax and Fee Administration
@@ -182,26 +210,36 @@ This section serves as a means to navigate the project/repository.
     - All active Cigarette and Tobacco Licensees in California and their specific locations as of February 26, 2021
     - Each object in "features" has a "properties" argument containing the **Variables** discussed below and a "geometry" argument containing a point with a single "coordinates" field:
 ```
-"features": [
-  {
-    "type": "Feature",
-    "properties": {
-      "OBJECTID": #,
-      "STREET": "STREETADDRESS",
-      "CITY": "CITY_NAME",
-      "STATE": "CA",
-      "ZIPCODE": #########,
-      "Type": "Retailer"
+{
+    "type": "FeatureCollection",
+    "name": "Cigarette_and_Tobacco_Retailers",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
     },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        LONGITUDE,
-        LATITUDE
-      ]
-    }
-  }
-]
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "OBJECTID": #,
+                "STREET": "STREETADDRESS",
+                "CITY": "CITY_NAME",
+                "STATE": "CA",
+                "ZIPCODE": #########,
+                "Type": "Retailer"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    LONGITUDE,
+                    LATITUDE
+               ]
+            }
+        }, ...
+    ]
+}
 ```
   - Variables
     - **Object ID** (OBJECTID) - The index or the ordered identifier for a single object in the geoJSON
