@@ -17,9 +17,7 @@ d3.json(link).then (function (data) {
       .bindPopup("<h3>" + feature.properties.STREET + "</h3><hr><p>" + feature.properties.CITY + ", " + feature.properties.STATE  + " " + feature.properties.ZIPCODE + "</p>")); 
 
     
-  
-//L.geoJson(data).addTo(myMap);
- //myMap.addLayer(markers)
+
 };
     }); 
 // Adding tile layer
@@ -39,7 +37,7 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-  "Retailers": markers
+  "Tobacco Retailers": markers
 }; 
   
 

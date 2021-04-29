@@ -37,7 +37,7 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-  "Retailers": markers
+  "Tobacco Retailers": markers
 }; 
   
 
@@ -67,10 +67,10 @@ d3.json(geoData).then(function(data) {
     valueProperty: "NAdHrtDis",
 
     // Set color scale
-    scale: ["#b2b2ff", "#d9ffb2"],
+    scale: ["#d9ffb2","#00008b"],
 
     // Number of breaks in step range
-    steps: 15,
+    steps: 25,
 
     // q for quartile, e for equidistant, k for k-means
     mode: "q",
