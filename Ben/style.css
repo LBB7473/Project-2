@@ -1,3 +1,8 @@
+html {
+  background: url(https://images.pexels.com/photos/2695679/pexels-photo-2695679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center fixed;
+  background-size: cover;
+}
+
 .icon-bar {
   width: 100%; /* Full-width */
   background-color: rgb(3, 3, 3); /* Dark-grey background */
