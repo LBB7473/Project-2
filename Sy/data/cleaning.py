@@ -54,22 +54,22 @@ for x in zip_heart:
 print("End of heart ZIP's excluded")
 
 ## Change
-i = 0
-while i < object_change:
-    if change["features"][i]["properties"]["zipcode"] not in overlap:
-        change["features"][i].pop("geometry")
-        change["features"][i].pop("properties")
-        change["features"][i].pop("type")
-    i += 1
+
+newList = []
+for feature in change['features']:
+    if feature["properties"]["zipcode"] in overlap:
+        newList.append(feature)
+print(len(newList))
+change['features'] = newList
 
 ## Heart
-i = 0
-while i < object_heart:
-    if heart["features"][i]["properties"]["ZIPCODE"] not in overlap:
-        heart["features"][i].pop("geometry")
-        heart["features"][i].pop("properties")
-        heart["features"][i].pop("type")
-    i += 1
+
+newList = []
+for feature in heart['features']:
+    if feature["properties"]["ZIPCODE"] in overlap:
+        newList.append(feature)
+print(len(newList))
+change['features'] = newList
 
 # Tobacco
 
@@ -86,13 +86,12 @@ while i < object_tobacco:
     tobacco["features"][i]["properties"]["ZIPCODE"] = tobacco["features"][i]["properties"]["ZIPCODE"][:-4]
     i += 1
 
-i = 0
-while i < object_tobacco:
-    if tobacco["features"][i]["properties"]["ZIPCODE"] not in overlap:
-        tobacco["features"][i].pop("geometry")
-        tobacco["features"][i].pop("properties")
-        tobacco["features"][i].pop("type")
-    i += 1
+newList = []
+for feature in tobacco['features']:
+    if feature["properties"]["ZIPCODE"] in overlap:
+        newList.append(feature)
+print(len(newList))
+tobacco['features'] = newList
 
 # Data Export
 
