@@ -69,7 +69,7 @@ for feature in heart['features']:
     if feature["properties"]["ZIPCODE"] in overlap:
         newList.append(feature)
 print(len(newList))
-change['features'] = newList
+heart['features'] = newList
 
 # Tobacco
 

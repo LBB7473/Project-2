@@ -67,7 +67,7 @@ This section serves as a means to navigate the project/repository.
                 "Zip_code": "#####",
                 "PAdHrtDis": 0.0##,
                 "PAdHrtDis2": #.#,
-                "NAdHrtDis": ,
+                "NAdHrtDis": ####.#,
                 "Pop_18olde": #####
             },
             "geometry": {
