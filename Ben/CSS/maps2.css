@@ -161,3 +161,7 @@
   .textarea { 
     background-color: white;
   }
+  
+  p {
+    font-size: 15px;
+  }
