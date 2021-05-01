@@ -15,8 +15,7 @@
 - [Sources](#sources)
 ---
 ## Abstract
-Why are we doing what we're doing and what is it that we are attempting to do.
-
+We are interested in what may track or indicate the presence of tobacco retailers in the neighborhoods of Los Angeles. We intend identify what appear to be two completely distinct datasets to track the presence of tobacco retailers in different ways. We landed on **Heart Diagnoses** which, we believe, would indicate a positive relationship and **Level of Gentrification** which, we believe, would indicate a negative relationship. We will attempt to loosely establish these relationships by using the geolocation data to make plots and maps.
 ## Repository
 This section serves as a means to navigate the project/repository.
 - **Folder Name**
@@ -98,7 +97,8 @@ This section serves as a means to navigate the project/repository.
     - **Number of Adults with Heart Disease** (NAdHrtDis) - The number of adult respondents who were ever diagnosed with heart disease by a doctor, adjusted for **Po_18older**
     - **Population Size** (Pop_18olde) - The population size for that **ZIPCODE**
   - Limitations
-    - Discuss any specific limitations of the dataset
+    - The dataset will be reduced to only include the **zipcode**s that are also present in the **Los Angeles Index of Change** and **Cigarette and Tobacco Retailers** datasets
+  - Reliability - ???
 2. [Los Angeles Index of Change](https://geohub.lacity.org/datasets/57e9231c3bd34d44ae49b309b0cb440e_1?geometry=-121.025%2C33.622%2C-115.798%2C34.419&selectedAttribute=HH_Incom_2) from The GeoHub, City of Los Angeles
 
 **Disclaimer:** We will largely be using definitions as noted by The GeoHub, City of Los Angeles as to avoid straying from the intended interpretation of the dataset.
@@ -202,7 +202,11 @@ This section serves as a means to navigate the project/repository.
     - **Shape Length** (SHAPE_length) - Indicator describing length of the **MultiPolygon** defined by **coordinates** in **geometry**
     - **Shape Area** (SHAPE_Area) - Indicator describing the area of the **MultiPolygon** defined by **coordinates** in **geometry**
   - Limitations
-    - Discuss any specific limimations of the dataset
+    - All entries that have an **Evaluated** value of **No** are varying levels of incomplete, with an **Index_Scor** given a 0 as a placeholder
+      - As such, we will be excluding these entires
+      - This will limit the number of **zipcode**s represented
+    - The dataset will be reduced to only include the **zipcode**s that are also present in the **Heart Disease (18 & Over) 2011-2012** and **Cigarette and Tobacco Retailers** datasets
+  - Reliability - ???
 3. [Cigarette and Tobacco Retailers](https://data.ca.gov/dataset/cigarette-and-tobacco-retailers1) from California Open Data Portal, Department of Tax and Fee Administration
 
 **Disclaimer:** We will largely be using definitions as noted by the Bureau of Justice Statistics as to avoid straying from the intended interpretation of the dataset.
@@ -250,22 +254,51 @@ This section serves as a means to navigate the project/repository.
     - **Common Name of Variable** (Type) - The type of licensee (commercial entity)
       - For this dataset, every object has the **Type**: "Retailer"
   - Limitations
-    - Discuss any specific limimations of the dataset
-**Reliability**
-Discuss the reliability of the datasets here.
-
+    - The data is vastly larger than what we need, as we are only interested in parts of the greater Los Angeles area
+      - We have limited the data to only show entries for the **ZIPCODE**s that exist in both the **Heart Disease (18 & Over) 2011-2012** and **Los Angeles Index of Change** datasets with some special exceptions specified in the data limitations for **Los Angeles Index of Change**
+    - In order to perform this **ZIPCODE** check, we have altered the **ZIPCODE**s from an int datatype with 9 characters to a string datatype with 5 characters as to match the other datasets
+      - This was done by first casting as a string and then removing the last 4 characters from each string
+  - Reliability
+  The data appears to be complete, accurate, and recent.
+    - **Completeness** - It provides all the tobacco retailer locations in California without exception
+    - **Accurate** - As the source is data.ca.gov and active retailer licenses are approved and tracked by the Special Taxes Policy and Compliance Division, the data should be acknowledged as the primary source for this type of data
+    - **Recent** - The data used was last updated on February 26, 2021
 ### Methodology
 1. Step by step on how we approach this problem
 
 ### Analysis
 Research Questions include:
-1. Question1
-2. Question2
-3. Question3
+1. Does heart disease diagnoses track to areas containing a higher number of tobacco retailers?
+2. Does gentrification track to areas containing a lower number of tobacco retailers?
+3. What extraordinary trends and zip codes can we identify?
 
 ### Results
-**Research results and further research development:**
-What did we find and what can we do in the future...
+**Research results:**
+**Maps**
+1. We used the data taken from the USC Neighborhood Data for Social Change to create a Choropleth Map of Los Angeles County zip-codes, with marker clusters of tobacco retailer shops. The zip-code colors indicate a red tone if the index of change is high, and a blue tone if the index of change is low or non-existent. In looking at the map, it appears as though the largest concentration of change is near downtown Los Angeles. That part of the map also contains the largest concentration of tobacco retailers. Gas stations, liquor stores, and smoke shops are largely present in lower income areas, so it would seem likely that there would be lots of tobacco retailers in areas that are becoming gentrified. Furthermore, the wealthiest areas of Los Angeles, namely Beverly Hills, Bel Air, Westwood and Pacific Palisades, have a very small index of change and additionally have a very small concentration of tobacco retailers. An interesting area to look at is a small neighborhood called Canoga Park that is nestled in between Calabasas and Woodland hills. The area has had a large amount of gentrification in comparison to the surrounding areas and subsequently has a larger concentration of tobacco retailers comparatively. Bel Air has the smallest tracked index of change with 0.141 whereas downtown LA has an index of change of 0.814. Additionally, Bel Air has three identified tobacco retailers and downtown LA has 118 and is nearly 1/10th in size.
+2. Smoking is a known contributor to heart disease, and the availability of tobacco products could have a relationship with the amount of people diagnosed. Since Los Angeles is a very large and populated city, we created a Choropleth map that displays the percent population of a particular zip-code that has been admitted to a hospital for heart disease related issues. The dark purple indicates a high percentage of the zip-code population being admitted to the hospital for heart disease whereas the light green indicates low levels of heart disease among the population. In looking at the map, it is easy to identify the large, purple area to the left of central Los Angeles. That area in particular has the largest percentage of afflicted individuals, and coincidentally also happens to be the wealthiest area of Los Angeles. Additionally there is a low number of tobacco retailers in the area, unlike more central LA where there are more tobacco retailers and less percentage of the zip-code with diagnosed heart disease. It would be interesting to look at the demographics for each zip-code to identify if there are any other potential factors that potentially influence individuals to develop heart disease, but at the present moment it is logical to assume that there is no relationship between tobacco retailers and heart disease ratios among zip-code populations.
+
+**Charts**
+1. Notable neighborhoods with high percent of heart disease diagnoses:
+  - Pacific Palisades (90272, 9.5%)
+  - Beverly Hills (90210, 8.9%)
+  - San Pedro (90732, 8.8%)
+  - Encino (91436, 8.4%)
+  - Brentwood (90049, 8.2%)
+2. Notable neighborhooods with high percent of heart disease diagnoses:
+  - Pacific Palisades (90272, 1,843 Diagnoses, 19.4K Population)
+  - Beverly Hills (90210, 1,637.6 Diagnoses, 18.4K Population)
+  - San Pedro (90732, 1768.8 Diagnoses, 20.1K Population)
+  - Encino (91436, 1,421.2 Diagnoses, 20.9K Population)
+  - Brentwood (90049, 2,443.6 Diagnoses, 29.8K Population)
+3. Median rent generally appears to have increased from 2000 to 2014 regardless if  median income has increased or decreased in that time period. A notable neighborhood emerges that appears to have disproportionately increased rent even with a large increase in income.
+  - West Adams (90014, 44.36668% change in Income, 108.064% change in Rent)
+4. Very few zip codes saw a decrease in household size that also saw an increase in filer ratio. Locating in the top-left, West Adams has one of the largest percent decreases in filer ratio while having a relatively large increase in household size.
+  - West Adams (90014, -58.747% change in Income, 7.317% change in Rent)
+5. West Adams had by far both the greatest increase in White Non-Hispanic residents and residents holding Bachelor's degrees and higher above the age of 25 years old. When plotted, it is the clear outlier.
+ - West Adams (90014, 26.815% change in White Residents, 29.511% change in Bachelor's Degrees)
+6. When creating an aggregate score used to measure levels of gentrification, West Adams stands apart from even other outliers, with the next highest score given to the Wholesale District(90013, Index Score of 0.68)
+  - West Adams (90014, Index Score of 0.814)
 
 ## Conclusion
 List out our major conclusions from the project:
@@ -277,5 +310,5 @@ Closing statement.
 
 ## Sources
 1. [Heart Disease (18 & Over) 2011-2012](https://geohub.lacity.org/datasets/26ebd4d3d7e6423587ed10be04c201d8_0?geometry=-121.138%2C33.660%2C-115.911%2C34.456)
-2. [Los Angelese Index of Change](https://geohub.lacity.org/datasets/57e9231c3bd34d44ae49b309b0cb440e_1?geometry=-121.025%2C33.622%2C-115.798%2C34.419&selectedAttribute=HH_Incom_2)
+2. [Los Angeles Index of Change](https://geohub.lacity.org/datasets/57e9231c3bd34d44ae49b309b0cb440e_1?geometry=-121.025%2C33.622%2C-115.798%2C34.419&selectedAttribute=HH_Incom_2)
 3. [Cigarette and Tobacco Retailers](https://data.ca.gov/dataset/cigarette-and-tobacco-retailers1)

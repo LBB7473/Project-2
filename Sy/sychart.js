@@ -21,7 +21,7 @@ heart_data.then (function (data) {
   })
   
   // Boxplot - Heart Disease (Distribution)
-    // Points of note: 90272(9.5), 90210(8.9), 90732(8.8)
+    // Points of note: 90272(9.5), 90210(8.9), 90732(8.8), 91436(8.4), 90049(8.2)
 
   var data1 = [
     {
@@ -51,7 +51,7 @@ heart_data.then (function (data) {
   Plotly.newPlot("plot1", data1, layout1);
 
   // Scatterplot - Heart (Diagnoses x Population)
-    // Points of note: 90275(37K, 3182)
+    // Points of note: 90272(1,843, 19.4K), 90210(1,637.6, 18.4K), 90732(1768.8, 20.1K), 91436(1,421.2, 20.9K), 90049(2,443.6, 29.8K)
 
   var data2 = [
     {
@@ -154,6 +154,7 @@ change_data.then (function (data) {
   Plotly.newPlot('plot3', data3, layout3);
 
   // Scatterplot - Change (Median Household x IRS Ratio)
+    // Points of note: 90014(-58.747, 7.317)
     // There are very few points in quadrant 4, signifying few 
     // zip codes that saw a decrease in household size that that had
     // and increase in filer ratio.

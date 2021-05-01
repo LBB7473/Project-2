@@ -12,12 +12,17 @@ response = requests.get(base_url)
 
 change = response.json()
 
+#### Filter out Evaluated = No
+
 object_change = len(change["features"])
 
 zip_change = []
 i = 0
 while i < object_change:
-    zip_change.append(change["features"][i]["properties"]["zipcode"])
+    if change["features"][i]["properties"]["Evaluated"] == "Yes":
+        zip_change.append(change["features"][i]["properties"]["zipcode"])
+    else:
+        print(f'{change["features"][i]["properties"]["zipcode"]} evaluates to No.')
     i += 1
 zip_change = set(zip_change)
 
