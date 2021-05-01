@@ -43,10 +43,18 @@ var overlayMaps = {
 
 // Creating map object
 var myMap = L.map("map", {
+  
   center: [34.0522, -118.2437],
   zoom: 11, 
   layers: [streetmap, markers]
 }); 
+
+myMap.addControl(new L.Control.Fullscreen({
+  title: {
+      'false': 'View Fullscreen',
+      'true': 'Exit Fullscreen'
+  }
+}));
 
 L.control.layers(baseMaps, overlayMaps, {
   collapsed: false
@@ -64,7 +72,7 @@ d3.json(geoData).then(function(data) {
   geojson = L.choropleth(data, {
 
     // Define what  property in the features to use
-    valueProperty: "NAdHrtDis",
+    valueProperty: "PAdHrtDis2",
 
     // Set color scale
     scale: ["#d9ffb2","#00008b"],
@@ -83,8 +91,8 @@ d3.json(geoData).then(function(data) {
 
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("<h3> Patients 18+ with Heart Disease </h3>" 
-         + feature.properties.NAdHrtDis);
+      layer.bindPopup("<h3><b>"   
+         + feature.properties.PAdHrtDis2 +" % </h3>  " + " <hr> <p> " + feature.properties.Zip_code );
     }
   }).addTo(myMap);
 
@@ -97,7 +105,7 @@ d3.json(geoData).then(function(data) {
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1> Number of Patients </h1>" +
+    var legendInfo = "<h1> Percent of zipcode population with Heart Disease </h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +

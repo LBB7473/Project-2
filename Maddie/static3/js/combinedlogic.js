@@ -43,10 +43,18 @@ var overlayMaps = {
 
 // Creating map object
 var myMap = L.map("map", {
+  
   center: [34.0522, -118.2437],
   zoom: 11, 
   layers: [streetmap, markers]
 }); 
+
+myMap.addControl(new L.Control.Fullscreen({
+  title: {
+      'false': 'View Fullscreen',
+      'true': 'Exit Fullscreen'
+  }
+}));
 
 L.control.layers(baseMaps, overlayMaps, {
   collapsed: false
@@ -64,13 +72,13 @@ d3.json(geoData).then(function(data) {
   geojson = L.choropleth(data, {
 
     // Define what  property in the features to use
-    valueProperty: "HH_Incom_2",
+    valueProperty: "Index_Scor",
 
     // Set color scale
-    scale: ["#b2b2ff", "#d9ffb2"],
+    scale: ["#29ccbc", "#e80909"],
 
     // Number of breaks in step range
-    steps: 15,
+    steps: 20,
 
     // q for quartile, e for equidistant, k for k-means
     mode: "q",
@@ -83,8 +91,8 @@ d3.json(geoData).then(function(data) {
 
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup("Zip Code: " + feature.properties.zipcode + "<br>Median Household Income:<br>" +
-        "$" + feature.properties.HH_Incom_2);
+      layer.bindPopup( "<b> Neighborhood: </b>" + feature.properties.Neighborho+ "</h3><br>" + "<b> Change in Index:</b> <br>" +
+         feature.properties.Index_Scor);
     }
   }).addTo(myMap);
 
@@ -97,7 +105,7 @@ d3.json(geoData).then(function(data) {
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1>Median Household Income</h1>" +
+    var legendInfo = "<h1>Index Score </h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +

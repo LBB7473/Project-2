@@ -9,6 +9,8 @@
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
 
+    <!-- Leaflet fullscreen library plugin  -->
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static4/css/style.css">
@@ -35,6 +37,8 @@
     <!-- Leaflet-Choropleth JavaScript -->
     <script type="text/javascript" src="static4/js/choropleth.js"></script>
 
+     <!-- Leaflet fullscreen library javascript  -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
       <!-- Marker Cluster JS -->
     <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
 
@@ -44,3 +48,14 @@
 
   </body>
 </html>
+
+
+
+
+Building
+npm install && make
+ProTip You may want to install watch so you can run watch make without needing to execute make on every change.
+
+Supported Leaflet Versions
+Leaflet 1.0 and later is supported. Earlier versions may work, but are not tested.
+
