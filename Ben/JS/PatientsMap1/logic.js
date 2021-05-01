@@ -1,7 +1,7 @@
 
 //Adding tobacco data markers 
 
-var link = "../../DATA/tobacco2.geojson";
+var link = "../DATA/tobacco2.geojson";
 
 //Grabbing our GeoJSON data..
 d3.json(link).then (function (data) {
@@ -53,7 +53,7 @@ L.control.layers(baseMaps, overlayMaps, {
 }).addTo(myMap)
 
 // Load in geojson data
-var geoData = "../../DATA/heart.geojson";
+var geoData = "../DATA/heart.geojson";
 
 var geojson;
 
