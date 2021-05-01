@@ -33,7 +33,7 @@ html {
 }
 
 .textarea { 
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(190, 235, 241);
   position: absolute;
   width: 70%;
   border-radius: 2%;
@@ -43,5 +43,5 @@ html {
   right: 15%;
   height: 100%;
   top: 20%;
-  opacity: 95%;
+  opacity: 100%;
 }

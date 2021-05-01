@@ -29,6 +29,23 @@
     font-family: Arial;
   }
 
-  /* Fixed sidenav, full height */
+  body {
+    background: url(https://images.pexels.com/photos/6779979/pexels-photo-6779979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center fixed;
+    background-size: cover;
+  }
 
+  /* Fixed sidenav, full height */
+  .textbody { 
+    background-color: rgb(190, 235, 241);
+    position: absolute;
+    width: 70%;
+    border-radius: 2%;
+    padding: 50px;
+    margin: 20px;
+    left: 15%;
+    right: 15%;
+    height: 100%;
+    top: 20%;
+    opacity: 100%;
+  }
   
