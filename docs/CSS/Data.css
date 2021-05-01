@@ -1,0 +1,63 @@
+.icon-bar {
+    width: 100%; /* Full-width */
+    background-color: rgb(3, 3, 3); /* Dark-grey background */
+    overflow: auto; /* Overflow due to float */
+  }
+  
+  .icon-bar a {
+    float: left; /* Float links side by side */
+    text-align: center; /* Center-align text */
+    width: 25%; /* Equal width (5 icons with 20% width each = 100%) */
+    padding: 12px; /* Some top and bottom padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: rgb(255, 255, 255); /* White text color */
+    font-size: 36px; /* Increased font size */
+  }
+  #data {
+    background-color: rgba(0, 131, 253, 0.63);
+  }
+  .icon-bar a:hover {
+    background-color: rgb(122, 196, 238); /* Add a hover color */
+  }
+  
+  .active {
+    background-color: #14c6cc; /* Add an active/current color */
+  }
+  .icon-bar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+
+  body {
+    background: url(https://images.pexels.com/photos/6779979/pexels-photo-6779979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center fixed;
+    background-size: cover;
+  }
+
+  /* Fixed sidenav, full height */
+  .textbody { 
+    background-color: rgb(190, 235, 241);
+    position: absolute;
+    width: 70%;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 20px;
+    left: 15%;
+    right: 15%;
+    height:fit-content;
+    top: 20%;
+    opacity: 100%;
+  }
+  pre {
+    background-color: rgba(87, 172, 228, 0.644);
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .variables {
+    font-style: italic;
+  }
+  h1 {
+    text-align: center;
+  }
+  
