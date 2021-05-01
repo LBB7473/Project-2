@@ -94,7 +94,7 @@ This section serves as a means to navigate the project/repository.
     - **Zip Code** (ZIPCODE) - The zipcode (as a string) describing the area defined in "geometry"
     - **Zip Code** (Zip_code) - The alternate zipcode (as a string) with nodiscernable difference from **ZIPCODE**
     - **Proportion of Adults with Heart Disease** (PAdHrtDis) - The proportion of adult respondents who were ever diagnosed with heart disease by a doctor; Calculated by (**NAdHrtDis** / **Pop_18olde**)
-    - **Percent of Adults with Heart Disease** (PAdHrtDis) - The percent of adult respondents who were ever diagnosed with heart disease by a doctor; Calculated by (**NAdHrtDis** / **Pop_18olde**) * 100
+    - **Percent of Adults with Heart Disease** (PAdHrtDis2) - The percent of adult respondents who were ever diagnosed with heart disease by a doctor; Calculated by (**NAdHrtDis** / **Pop_18olde**) * 100
     - **Number of Adults with Heart Disease** (NAdHrtDis) - The number of adult respondents who were ever diagnosed with heart disease by a doctor, adjusted for **Po_18older**
     - **Population Size** (Pop_18olde) - The population size for that **ZIPCODE**
   - Limitations
