@@ -14,10 +14,10 @@
     font-size: 36px; /* Increased font size */
   }
   #maps {
-    background-color: rgb(99, 163, 102);
+    background-color: rgba(0, 131, 253, 0.63);
   }
   .icon-bar a:hover {
-    background-color: rgb(147, 236, 152); /* Add a hover color */
+    background-color: rgb(122, 196, 238); /* Add a hover color */
   }
   
   .active {
@@ -62,7 +62,7 @@
   }
   
   .dropbtn {
-    background-color: #1e461f;
+    background-color: #09324d;
     color: white;
     padding: 16px;
     font-size: 30px;
@@ -98,7 +98,7 @@
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #06611d;}
+  .dropdown-content a:hover {background-color: rgb(18, 145, 219);}
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
@@ -107,7 +107,7 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: rgb(65, 186, 223);
   }
   .leaflet-popup-content {
     text-align: center;

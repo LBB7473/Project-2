@@ -14,10 +14,10 @@
     font-size: 36px; /* Increased font size */
   }
   #data {
-    background-color: rgb(99, 163, 102);
+    background-color: rgba(0, 131, 253, 0.63);
   }
   .icon-bar a:hover {
-    background-color: rgb(147, 236, 152); /* Add a hover color */
+    background-color: rgb(122, 196, 238); /* Add a hover color */
   }
   
   .active {
@@ -39,13 +39,25 @@
     background-color: rgb(190, 235, 241);
     position: absolute;
     width: 70%;
-    border-radius: 2%;
+    border-radius: 20px;
     padding: 50px;
     margin: 20px;
     left: 15%;
     right: 15%;
-    height: 100%;
+    height:fit-content;
     top: 20%;
     opacity: 100%;
+  }
+  pre {
+    background-color: rgba(87, 172, 228, 0.644);
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .variables {
+    font-style: italic;
+  }
+  h1 {
+    text-align: center;
   }
   

@@ -14,10 +14,10 @@
     font-size: 36px; /* Increased font size */
   }
   #charts {
-    background-color: rgb(99, 163, 102);
+    background-color: rgba(0, 131, 253, 0.63);
   }
   .icon-bar a:hover {
-    background-color: rgb(147, 236, 152); /* Add a hover color */
+    background-color: rgb(122, 196, 238); /* Add a hover color */
   }
   
   .active {
@@ -69,10 +69,7 @@
   }
   
   /* Add an active class to the active dropdown button */
-  .active {
-    background-color: green;
-    color: white;
-  }
+
 
   #plot1,
   #plot2,

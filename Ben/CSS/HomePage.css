@@ -19,12 +19,12 @@ html {
   font-size: 36px; /* Increased font size */
 }
 
-.icon-bar a:hover {
-  background-color: rgb(147, 236, 152); /* Add a hover color */
+.active {
+  background-color: rgba(0, 131, 253, 0.63); /* Add an active/current color */
 }
 
-.active {
-  background-color: #14c6cc; /* Add an active/current color */
+.icon-bar a:hover {
+  background-color: rgb(122, 196, 238); /* Add a hover color */
 }
 .icon-bar {
   overflow: hidden;
