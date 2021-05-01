@@ -81,7 +81,7 @@ Disclaimer: We will largely be using definitions as noted by The GeoHub, City of
     - Population Size (Pop_18olde) - The population size for that ZIPCODE
   - Limitations
     - The dataset will be reduced to only include the zipcodes that are also present in the Los Angeles Index of Change and Cigarette and Tobacco Retailers datasets
-2. Los Angeles Index of Change from The GeoHub, City of Los Angeles
+2. Los Angeles Index of Change
 https://geohub.lacity.org/datasets/57e9231c3bd34d44ae49b309b0cb440e_1?geometry=-121.025%2C33.622%2C-115.798%2C34.419&selectedAttribute=HH_Incom_2
 
 Disclaimer: We will largely be using definitions as noted by The GeoHub, City of Los Angeles as to avoid straying from the intended interpretation of the dataset.
@@ -246,3 +246,20 @@ Disclaimer: We will largely be using definitions as noted by the Bureau of Justi
     - Completeness - It provides all the tobacco retailer locations in California without exception
     - Accurate - As the source is data.ca.gov and active retailer licences are approved and tracked by the Special Taxes Policy and Compliance Division, the data should be acknowledged as the primary source for this type of data
     - Recent - The data used was last updated on February 26, 2021
+
+(Title) Tracking LA Tobacco - Gentrification and Heart Disease
+
+We are interested in what may track or indicate the presence of tobacco retailers in the neighborhoods of Los Angeles. We intend to identify what appears to be two completely distinct datasets to track the presence of tobacco retailers in different ways. We landed on Heart Diagnoses which, we believe, would indicate a positive relationship and Level of Gentrification which, we believe, would indicate a negative relationship. 
+
+Our goal is to establish and visualize these relationships through geolocation data to create interactive map overlays and plots. We hope these visualizations can be of use in future public application. 
+
+Contact our Team!
+
+Ben Wankmuller
+benwankmuller@gmail.com
+
+Maddie Sachtler
+madelinegsachtler@gmail.com
+
+Sy Flores
+syestevenflores@gmail.com
